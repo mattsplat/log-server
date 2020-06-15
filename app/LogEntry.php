@@ -10,4 +10,8 @@ class LogEntry extends Model
         'device_id',
         'data'
     ];
+
+    protected $casts = [
+        'data' => 'array'
+    ];
 }
