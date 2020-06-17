@@ -12,10 +12,15 @@ class LogEntryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return LogEntry::query()
-            ->orderBy('created_at')->get();
+
+        $query = LogEntry::query();
+        if($request->device_id) {
+            $query->where('device_id', $request->device_id);
+        }
+
+        $query->orderBy('created_at', 'desc')->get();
     }
 
 
