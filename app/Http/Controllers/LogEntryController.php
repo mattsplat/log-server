@@ -20,7 +20,9 @@ class LogEntryController extends Controller
             $query->where('device_id', $request->device_id);
         }
 
-        $query->orderBy('created_at', 'desc')->get();
+        $logs = $query->orderBy('created_at', 'desc')->get();
+
+        return $logs;
     }
 
 
